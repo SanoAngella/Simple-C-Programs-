@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+double add(double a, double b) {
+    return a + b;
+}
+double subtract(double a, double b) {
+    return a - b;
+}
+double multiply(double a, double b) {
+    return a * b;
+}
+double divide(double a, double b) {
+    if (b == 0) {
+        printf("Error: Cannot divide by zero\n");
+        return 0;
+    }
+    return a / b;
+}
+
+int main() {
+    double a, b;
+    int choice;
+
+    while (true) {
+        printf("\nCalculator Menu:\n");
+        printf("1. Addition\n");
+        printf("2. Subtraction\n");
+        printf("3. Division\n");
+        printf("4. Multiplication\n");
+        printf("5. Stop calculating\n");
+
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        if (choice == 5) {
+            printf("Thank you for using the calculator!\n");
+            break;
+        }
+
+        printf("Enter number 1: ");
+        scanf("%lf", &a);
+
+        printf("Enter number 2: ");
+        scanf("%lf", &b);
+
+        switch (choice) {
+            case 1:
+                printf("Result = %.2lf\n", add(a, b));
+                break;
+
+            case 2:
+                printf("Result = %.2lf\n", subtract(a, b));
+                break;
+
+            case 3:
+                printf("Result = %.2lf\n", divide(a, b));
+                break;
+
+            case 4:
+                printf("Result = %.2lf\n", multiply(a, b));
+                break;
+
+            default:
+                printf("Invalid choice\n");
+        }
+    }
+
+    return 0;
+}
